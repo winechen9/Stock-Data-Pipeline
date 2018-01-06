@@ -1,11 +1,11 @@
-Big Data(Stock Real-Time Price) Pipeline
+## Big Data(Stock Real-Time Price) Pipeline
 
 This is a repo about displaying real-time stock price in a web dashboard with big data frameworks including Kafka, Zookeeper, Cassandra, Spark, Redis, Docker, Zipkin, Node.js, D3.js, Bootstrap and Jquery. 
 
 Python version = Python2.7
 Assume the docker-machine's ip is 192.168.99.100
 
-How to run:
+## How to run:
 # install all dependencies
 pip install -r requirements.txt
 
