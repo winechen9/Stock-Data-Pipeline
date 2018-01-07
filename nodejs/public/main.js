@@ -31,7 +31,7 @@ $(function () {
 
         $("#stock-symbol").val("");
         data_points.push({
-            values: [],
+            values:[],
             key: symbol
         });
 

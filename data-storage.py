@@ -3,8 +3,9 @@
 
 import argparse
 import logging
-from kafka import KafkaConsumer
+
 from cassandra.cluster import Cluster
+from kafka import KafkaConsumer
 import json
 import atexit
 import requests
@@ -48,12 +49,12 @@ def save_data(stock_data, session):
 			price = float(parsed.get('price'))
 			timestamp =  parsed.get('last_trade_time')
 
-			statement = "INSERT INTO %s (symbol, trade_time, price) VALUES ('%s', '%s', '%f')" % (table, symbol, timestamp, price)
+			statement = "INSERT INTO %s (symbol, trade_time, price) VALUES ('%s', '%s', %f)" % (table, symbol, timestamp, price)
 			session.execute(statement)
 			logger.info('saved data into cassandra %s', stock_data)
 
-		except Exception as e:
-			logger.error('cannot save data %s', stock_data)
+		except Exception as ke:
+			logger.error('cannot save data %s', ke)
 
 def shutdown_hook(consumer, session):
 	logger.info('closing resource')
